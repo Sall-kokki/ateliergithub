@@ -1,6 +1,6 @@
-FROM eclipse-temurin:17-jdk-alpine
+FROM eclipse-temurin:17-jdk-jammy
+# Définir le répertoire de travail dans le conteneur
 WORKDIR /app
-COPY . .
-RUN ./mvnw package -DskipTests
+COPY target/*.jar app.jar
 EXPOSE 8080
-CMD ["java", "-jar", "target/*.jar"]
+ENTRYPOINT ["java","-jar","app.jar"]
