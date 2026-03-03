@@ -1,0 +1,21 @@
+name: Build Python Docker
+
+on:
+  push:
+    branches: [ main ]  # ou master selon ton repo
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Build Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: ./Dockerfile-python  # <-- important si ton Dockerfile n'est pas juste "Dockerfile"
+          push: false                # <-- ne pas pousser sur Docker Hub
+          tags: pythonapp:latest
