@@ -24,4 +24,4 @@ jobs:
           context: .
           file: ./Dockerfile-python
           push: true
-          tags: DOCKER_USERNAME/pythonapp:latest
+          tags: masskokki/pythonapp:latest
